@@ -10,7 +10,7 @@ do
     guess = Guess();
 } while (guess != number);
 
-static int Guess()
+int Guess()
 {
     string input;
     int output;
@@ -20,11 +20,16 @@ static int Guess()
     {
         Console.WriteLine("Please enter a number between 1 and 100.");
     }
+    else
+    {
+        // Outputs feedback to the users guess (a hint, or confirmation that the guess was correct).
+        GiveFeedback(output, number);
+    }
 
     return output;
 }
 
-static void GiveHint(int guess, int number)
+static void GiveFeedback(int guess, int number)
 {
     if (guess > number)
     {
